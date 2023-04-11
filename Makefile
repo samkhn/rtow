@@ -15,6 +15,9 @@ ray_test := $(BUILD_DIR)/ray_test
 
 all: run_tests run
 
+compile_commands: clean
+	@bear -- make all
+
 run_tests: run_vector3_test run_color_test run_ray_test
 
 run_vector3_test: $(vector3_test)
@@ -27,7 +30,7 @@ $(vector3_test): vector3_test.cpp vector3.hpp test_utilities.hpp
 run_color_test: $(color_test)
 	$<
 
-$(color_test): color_test.cpp color.hpp 
+$(color_test): color_test.cpp color.hpp
 	@mkdir -p $(BUILD_DIR)
 	$(CXX_COMPILER) $(CXX_FLAGS) -g $< -o $@
 

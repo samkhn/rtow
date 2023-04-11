@@ -59,9 +59,9 @@ int main() {
   Vector3 sample2(4.0, 5.0, 6.0);
   std::stringstream serialized_sample;
   serialized_sample << sample2;
+  // TODO: double check the standard that this'll hold.
   // Because we are working with 4.0 and aren't specifying precision, it'll
   // print 4.
-  // TODO: double check the standard that this'll hold.
   assert(serialized_sample.str() == "4 5 6");
 
   Vector3 combined = sample1 + sample2;
