@@ -11,22 +11,30 @@ OUT_DIR := $(CURDIR)/out
 main := $(BUILD_DIR)/main
 vector3_test := $(BUILD_DIR)/vector3_test
 color_test := $(BUILD_DIR)/color_test
+ray_test := $(BUILD_DIR)/ray_test
 
 all: run_tests run
 
-run_tests: run_vector3_test run_color_test
+run_tests: run_vector3_test run_color_test run_ray_test
 
 run_vector3_test: $(vector3_test)
 	$<
 
-$(vector3_test): vector3_test.cpp vector3.hpp
+$(vector3_test): vector3_test.cpp vector3.hpp test_utilities.hpp
 	@mkdir -p $(BUILD_DIR)
 	$(CXX_COMPILER) $(CXX_FLAGS) -g $< -o $@
 
 run_color_test: $(color_test)
 	$<
 
-$(color_test): color_test.cpp color.hpp
+$(color_test): color_test.cpp color.hpp 
+	@mkdir -p $(BUILD_DIR)
+	$(CXX_COMPILER) $(CXX_FLAGS) -g $< -o $@
+
+run_ray_test: $(ray_test)
+	$<
+
+$(ray_test): ray_test.cpp ray.hpp test_utilities.hpp
 	@mkdir -p $(BUILD_DIR)
 	$(CXX_COMPILER) $(CXX_FLAGS) -g $< -o $@
 
