@@ -6,7 +6,7 @@
 
 #include "vector3.hpp"
 
-void WriteColor(std::ostream& out, const Color& pixel_color) {
+inline void WriteColor(std::ostream& out, const Color& pixel_color) {
   assert(pixel_color.x() >= 0 && pixel_color.x() <= 255);
   assert(pixel_color.y() >= 0 && pixel_color.y() <= 255);
   assert(pixel_color.z() >= 0 && pixel_color.z() <= 255);

@@ -1,11 +1,11 @@
 #include <cstdint>
 #include <iostream>
 
-#include "circle.hpp"
-#include "color.hpp"
-#include "hittable.hpp"
-#include "ray.hpp"
-#include "vector3.hpp"
+#include "rtow/circle.hpp"
+#include "rtow/color.hpp"
+#include "rtow/hittable.hpp"
+#include "rtow/ray.hpp"
+#include "rtow/vector3.hpp"
 
 static Sphere s(Point3Space(0, 0, -1), 0.5);
 

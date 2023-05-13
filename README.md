@@ -8,18 +8,26 @@ This whole graphics thing? Kinda neat ey?
 
 ## Requirements
 
-- GNU make and bash
-- g++ or clang
+- CMake
+- g++ or clang with C++14
 
-## Targets
+## Run
 
-Tests:
+Configure:
 ```bash
-$ make run_tests
+$ mkdir -p build
+$ cmake -B build -G Ninja -S .
 ```
 
-Generate image/main:
+Run tests
 ```bash
-$ make run
+$ cmake --build build
+$ cd build && ctest
 ```
+
+Generate image:
+```bash
+$ cmake --build build --target run-main
+```
+This generates an out directory and inside CMAKE_BUILD_DIR and produces an image.
 
